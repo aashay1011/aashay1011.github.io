@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiToxer AI – Earn Your Scrolling. Master Your Mind.</title>
+  <meta name="description" content="DigiToxer AI is a behavioral discipline layer that uses stealth architecture, hard app locking, and AI-verified tasks to help you earn screen time and master your digital life.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #05070b; --bg2: #090d14; --surface: #0f141d; --surface2: #141b26;
+      --border: rgba(255,255,255,0.06); --border2: rgba(255,255,255,0.1);
+      --accent: #00d4aa; --accent2: #6c3fff; --accent3: #ff3d6e; --gold: #f5c842;
+      --text: #eef2f7; --muted: #5a6880; --muted2: #8896aa;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; background: rgba(5,7,11,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
+    .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; }
+    .logo em { color: var(--accent); font-style: normal; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--muted2); font-size: 0.88rem; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #000; padding: 10px 24px; border-radius: 6px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: all 0.2s; }
+    .nav-cta:hover { background: #fff; transform: translateY(-1px); }
+    @media(max-width:768px){ nav { padding: 16px 20px; } .nav-links { display: none; } }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 24px 60px; position: relative; overflow: hidden; }
+    .mesh { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; opacity: 0.12; }
+    .m1 { width: 700px; height: 700px; background: var(--accent2); top: -200px; left: -250px; animation: flt 16s ease-in-out infinite alternate; }
+    .m2 { width: 550px; height: 550px; background: var(--accent); bottom: -150px; right: -180px; animation: flt 20s ease-in-out infinite alternate-reverse; }
+    .m3 { width: 350px; height: 350px; background: var(--accent3); top: 50%; left: 55%; transform: translate(-50%,-50%); animation: flt 12s ease-in-out infinite alternate; }
+    @keyframes flt { from{transform:translate(0,0)} to{transform:translate(30px,20px)} }
+
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,212,170,0.07); border: 1px solid rgba(0,212,170,0.18); color: var(--accent); padding: 6px 18px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 36px; animation: up 0.9s ease both; }
+    .pulse { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+
+    h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.8rem, 7.5vw, 6rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.04em; margin-bottom: 24px; animation: up 0.9s ease 0.1s both; }
+    h1 .grad { background: linear-gradient(120deg, var(--accent) 0%, var(--accent2) 60%, var(--accent3) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .hero-p { font-size: clamp(0.95rem,2vw,1.15rem); color: var(--muted2); max-width: 560px; margin: 0 auto 52px; font-weight: 300; line-height: 1.75; animation: up 0.9s ease 0.2s both; }
+
+    .cta-group { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; animation: up 0.9s ease 0.3s both; }
+    .btn-p { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #000; border: none; padding: 15px 38px; border-radius: 8px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .btn-p:hover { transform: translateY(-2px); box-shadow: 0 20px 48px rgba(0,212,170,0.22); }
+    .btn-g { background: transparent; color: var(--text); border: 1px solid var(--border2); padding: 15px 38px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .btn-g:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.25); }
+
+    @keyframes up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+    /* TICKER */
+    .ticker-wrap { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); padding: 14px 0; margin-top: 72px; animation: up 1s ease 0.6s both; }
+    .ticker { display: flex; gap: 60px; width: max-content; animation: tick 30s linear infinite; }
+    @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ticker-item { white-space: nowrap; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; display: flex; align-items: center; gap: 12px; }
+    .ticker-item em { color: var(--accent); font-style: normal; }
+    .tdot { width: 4px; height: 4px; background: var(--border2); border-radius: 50%; }
+
+    /* LAYOUT */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 100px 24px; position: relative; z-index: 1; }
+    .tag { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); font-weight: 600; margin-bottom: 14px; }
+    .title { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem,3.5vw,3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 18px; }
+    .sub { color: var(--muted2); font-size: 1rem; max-width: 480px; line-height: 1.75; }
+    hr.div { border: none; border-top: 1px solid var(--border); }
+
+    /* LAYERS */
+    .layer { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 48px 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; overflow: hidden; transition: border-color 0.3s; margin-top: 16px; }
+    .layer::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.3s; }
+    .layer:hover { border-color: rgba(0,212,170,0.2); }
+    .layer:hover::before { opacity: 1; }
+    .layer-num { font-family: 'Syne', sans-serif; font-size: 7rem; font-weight: 800; color: rgba(255,255,255,0.03); line-height: 1; position: absolute; right: 40px; bottom: 20px; pointer-events: none; }
+    .layer-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,212,170,0.07); border: 1px solid rgba(0,212,170,0.15); color: var(--accent); padding: 4px 14px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px; }
+    .layer h3 { font-family: 'Syne', sans-serif; font-size: 1.55rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+    .layer p { color: var(--muted2); font-size: 0.93rem; line-height: 1.8; }
+    .layer-vis { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+    .code-block { font-family: 'Courier New', monospace; background: rgba(0,0,0,0.4); border-radius: 10px; padding: 16px 20px; font-size: 0.78rem; color: var(--accent); line-height: 1.8; border: 1px solid rgba(0,212,170,0.1); }
+    .cc { color: var(--muted); }
+    .bond-list { display: flex; flex-direction: column; gap: 10px; }
+    .bond-item { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; }
+    .bond-icon { font-size: 1.4rem; }
+    .bond-title { font-size: 0.9rem; font-weight: 500; }
+    .bond-label { font-size: 0.8rem; color: var(--muted); }
+    .bond-lv { margin-left: auto; font-size: 0.7rem; color: var(--accent); font-weight: 600; background: rgba(0,212,170,0.07); border: 1px solid rgba(0,212,170,0.15); padding: 3px 10px; border-radius: 100px; white-space: nowrap; }
+    @media(max-width:768px){ .layer { grid-template-columns: 1fr; gap: 28px; padding: 32px 24px; } .layer-num { font-size: 5rem; } }
+
+    /* MASTERY */
+    .mastery-bg { background: var(--surface); }
+    .mastery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; margin-top: 60px; }
+    .mc { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 28px; position: relative; overflow: hidden; transition: all 0.3s; }
+    .mc:hover { border-color: var(--border2); transform: translateY(-3px); }
+    .mc.gold { border-color: rgba(245,200,66,0.25); background: linear-gradient(135deg,rgba(245,200,66,0.04),var(--bg2)); }
+    .mc.gold:hover { border-color: rgba(245,200,66,0.5); }
+    .mc-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: rgba(255,255,255,0.05); position: absolute; top: 16px; right: 20px; line-height: 1; }
+    .mc.gold .mc-num { color: rgba(245,200,66,0.1); }
+    .mc-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 10px; }
+    .mc-name { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .mc.gold .mc-name { color: var(--gold); }
+    .mc-desc { color: var(--muted2); font-size: 0.85rem; line-height: 1.7; }
+    .mc-perks { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .perk { background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--muted2); padding: 4px 10px; border-radius: 6px; font-size: 0.72rem; }
+    .mc.gold .perk { border-color: rgba(245,200,66,0.15); color: var(--gold); background: rgba(245,200,66,0.05); }
+
+    /* GHOST MODE */
+    .ghost-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    @media(max-width:768px){ .ghost-split { grid-template-columns: 1fr; gap: 40px; } }
+    .phone-shell { background: var(--surface2); border: 1px solid var(--border2); border-radius: 44px; padding: 14px; max-width: 280px; margin: 0 auto; box-shadow: 0 60px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04); }
+    .phone-inner { background: var(--bg); border-radius: 34px; overflow: hidden; padding: 20px 18px; min-height: 480px; }
+    .p-time { font-size: 2rem; font-family: 'Syne', sans-serif; font-weight: 700; text-align: center; margin: 8px 0 4px; }
+    .p-date { font-size: 0.75rem; color: var(--muted); text-align: center; margin-bottom: 20px; }
+    .calc-display { background: rgba(0,0,0,0.4); border-radius: 12px; padding: 16px 20px; text-align: right; margin-bottom: 12px; }
+    .calc-small { font-size: 0.7rem; color: var(--muted); }
+    .calc-big { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 700; }
+    .calc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+    .cb { background: var(--surface); border-radius: 10px; padding: 14px 0; text-align: center; font-size: 0.9rem; font-weight: 500; border: 1px solid var(--border); }
+    .cb.op { background: rgba(108,63,255,0.15); color: var(--accent2); border-color: rgba(108,63,255,0.2); }
+    .cb.hi { background: rgba(0,212,170,0.25); color: var(--accent); border-color: var(--accent); }
+    .cb.eq { background: rgba(0,212,170,0.15); color: var(--accent); border-color: rgba(0,212,170,0.2); }
+    .ghost-hint { margin-top: 14px; text-align: center; font-size: 0.72rem; color: var(--muted); font-style: italic; }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+    .check-list li { display: flex; align-items: flex-start; gap: 14px; color: var(--muted2); font-size: 0.93rem; }
+    .check-list li span:first-child { color: var(--accent); font-size: 1.1rem; flex-shrink: 0; }
+
+    /* WAITLIST */
+    .wl-box { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 80px; text-align: center; position: relative; overflow: hidden; }
+    .wl-box::before { content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(108,63,255,0.12), transparent 70%); pointer-events: none; }
+    .wl-form { display: flex; gap: 12px; max-width: 500px; margin: 40px auto 0; flex-wrap: wrap; justify-content: center; }
+    .wl-input { flex: 1; min-width: 240px; background: var(--bg); border: 1px solid var(--border2); color: var(--text); padding: 14px 20px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
+    .wl-input:focus { border-color: var(--accent); }
+    .wl-input::placeholder { color: var(--muted); }
+    .wl-btn { background: var(--accent); color: #000; border: none; padding: 14px 30px; border-radius: 8px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; }
+    .wl-btn:hover { background: #fff; transform: translateY(-1px); }
+    .wl-note { font-size: 0.78rem; color: var(--muted); margin-top: 14px; }
+    .ok { display: none; color: var(--accent); font-size: 0.88rem; padding: 12px 24px; background: rgba(0,212,170,0.07); border: 1px solid rgba(0,212,170,0.2); border-radius: 8px; max-width: 420px; margin: 16px auto 0; }
+    @media(max-width:600px){ .wl-box { padding: 48px 24px; } }
+
+    /* FOOTER */
+    footer { padding: 48px; text-align: center; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; }
+    .f-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--text); margin-bottom: 10px; }
+    .f-logo em { color: var(--accent); font-style: normal; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Digi<em>Toxer</em> AI</div>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#mastery">Mastery</a></li>
+    <li><a href="#ghost">Ghost Mode</a></li>
+  </ul>
+  <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="mesh m1"></div>
+  <div class="mesh m2"></div>
+  <div class="mesh m3"></div>
+
+  <div class="eyebrow"><span class="pulse"></span> AI-Powered Behavioral Discipline · Android &amp; iOS</div>
+  <h1>Earn Your Scrolling.<br><span class="grad">Master Your Mind.</span></h1>
+  <p class="hero-p">DigiToxer AI isn't an app blocker — it's a discipline layer. Lock distractions, complete real-world bonds to earn access back, and level up from Cadet to Sovereign through 10 stages of digital mastery.</p>
+  <div class="cta-group">
+    <a href="#waitlist" class="btn-p">Get Early Access</a>
+    <a href="#how" class="btn-g">See How It Works</a>
+  </div>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="ticker-item"><span class="tdot"></span>Behavioral Discipline Layer</span>
+      <span class="ticker-item"><em>★</em> Bond Engine — Earn Your Unlock</span>
+      <span class="ticker-item"><span class="tdot"></span>Ghost Mode — Invisible Disguise</span>
+      <span class="ticker-item"><em>★</em> Hard Locking — Survives Reboots</span>
+      <span class="ticker-item"><span class="tdot"></span>On-Device AI Proof Verification</span>
+      <span class="ticker-item"><em>★</em> 10-Level Digital Mastery Scale</span>
+      <span class="ticker-item"><span class="tdot"></span>Level 10 — The App Disappears</span>
+      <span class="ticker-item"><em>★</em> Behavioral Discipline Layer</span>
+      <span class="ticker-item"><span class="tdot"></span>Bond Engine — Earn Your Unlock</span>
+      <span class="ticker-item"><em>★</em> Ghost Mode — Invisible Disguise</span>
+      <span class="ticker-item"><span class="tdot"></span>Hard Locking — Survives Reboots</span>
+      <span class="ticker-item"><em>★</em> On-Device AI Proof Verification</span>
+      <span class="ticker-item"><span class="tdot"></span>10-Level Digital Mastery Scale</span>
+      <span class="ticker-item"><em>★</em> Level 10 — The App Disappears</span>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- THREE LAYERS -->
+<div class="wrap" id="how">
+  <div class="reveal">
+    <div class="tag">The System</div>
+    <h2 class="title">Three layers.<br>One discipline engine.</h2>
+    <p class="sub">Most apps ask nicely. DigiToxer enforces. Here's how the three-layer architecture works together.</p>
+  </div>
+
+  <!-- Layer 1 -->
+  <div class="layer reveal">
+    <div>
+      <div class="layer-badge">🥷 Layer 1</div>
+      <h3>Ghost Mode — Stealth Architecture</h3>
+      <p>DigiToxer hides in plain sight. On install, you pick a functional decoy — a working Calculator, Unit Converter, or Flashlight. To anyone who picks up your phone, it's just a boring utility.<br><br>The real dashboard unlocks only via a secret PIN sequence. No one needs to know you're working on yourself.</p>
+    </div>
+    <div class="layer-vis">
+      <div style="font-size:0.7rem;color:var(--muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.1em;">Secret Backdoor Trigger</div>
+      <div class="code-block">
+        <span class="cc">// User opens Calculator app</span><br>
+        Type: <em>1 2 3 4 . . =</em><br><br>
+        <span class="cc">// System detects sequence</span><br>
+        → Verifying PIN...<br>
+        → <span style="color:var(--accent);">✓ Identity confirmed</span><br>
+        → DigiToxer Dashboard<br>&nbsp;&nbsp; unlocked 🔓
+      </div>
+      <div style="margin-top:14px;font-size:0.78rem;color:var(--muted);line-height:1.6;">The decoy stays fully functional. Your secret stays secret.</div>
+    </div>
+    <div class="layer-num">01</div>
+  </div>
+
+  <!-- Layer 2 -->
+  <div class="layer reveal">
+    <div>
+      <div class="layer-badge" style="background:rgba(255,61,110,0.07);border-color:rgba(255,61,110,0.15);color:var(--accent3);">🔒 Layer 2</div>
+      <h3>The Warden — Hardcore Enforcement</h3>
+      <p>DigiToxer doesn't suggest. It enforces. Using Android Accessibility Services, it detects the moment a blocked app opens and instantly covers it with a full-screen overlay.<br><br>The lock survives reboots. Device Admin permissions block impulsive uninstalling. Your future self thanks your present self.</p>
+    </div>
+    <div class="layer-vis">
+      <div style="font-size:0.7rem;color:var(--muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.1em;">Warden Event Log</div>
+      <div class="code-block" style="border-color:rgba(255,61,110,0.12);color:var(--accent3);">
+        <span class="cc">// User opens Instagram</span><br>
+        → App detected in blocklist<br>
+        → Overlay deployed in 0ms<br>
+        → <span style="color:var(--accent3);">⛔ Access denied</span><br><br>
+        <span class="cc">// User tries to uninstall</span><br>
+        → Device Admin active<br>
+        → <span style="color:var(--accent3);">⛔ Uninstall blocked</span>
+      </div>
+      <div style="margin-top:14px;font-size:0.78rem;color:var(--muted);line-height:1.6;">Survives reboots. No workarounds. No escape hatches.</div>
+    </div>
+    <div class="layer-num">02</div>
+  </div>
+
+  <!-- Layer 3 -->
+  <div class="layer reveal">
+    <div>
+      <div class="layer-badge" style="background:rgba(108,63,255,0.07);border-color:rgba(108,63,255,0.15);color:var(--accent2);">⚡ Layer 3</div>
+      <h3>The Bond Engine — Earned Dopamine</h3>
+      <p>You don't wait out the timer. You <em>earn</em> your way back. To unlock a blocked app, you must fulfill a Bond — a real-world task that scales with your level.<br><br>At Level 3+, on-device AI verifies your proof — a photo of a sketch, a code commit, a practice log. No faking it.</p>
+    </div>
+    <div class="layer-vis">
+      <div style="font-size:0.7rem;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.1em;">Bond Types</div>
+      <div class="bond-list">
+        <div class="bond-item">
+          <span class="bond-icon">🧮</span>
+          <div><div class="bond-title">Mental Math</div><div class="bond-label">Solve 3 equations correctly</div></div>
+          <span class="bond-lv">Lv 1–2</span>
+        </div>
+        <div class="bond-item">
+          <span class="bond-icon">👟</span>
+          <div><div class="bond-title">Step Goal Sync</div><div class="bond-label">Reach target via Health Connect</div></div>
+          <span class="bond-lv">Lv 1–2</span>
+        </div>
+        <div class="bond-item">
+          <span class="bond-icon">🎨</span>
+          <div><div class="bond-title">Hobby Proof</div><div class="bond-label">AI verifies your sketch / practice</div></div>
+          <span class="bond-lv">Lv 3+</span>
+        </div>
+        <div class="bond-item">
+          <span class="bond-icon">💻</span>
+          <div><div class="bond-title">Code Commit Bond</div><div class="bond-label">GitHub commit as proof of work</div></div>
+          <span class="bond-lv">Lv 3+</span>
+        </div>
+      </div>
+    </div>
+    <div class="layer-num">03</div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- MASTERY -->
+<section class="mastery-bg">
+  <div class="wrap" id="mastery">
+    <div class="reveal">
+      <div class="tag">The Progression</div>
+      <h2 class="title">10 Levels of<br>Digital Mastery</h2>
+      <p class="sub">DigiToxer tracks your journey on a 1–10 scale. The goal? Reach Level 10 — where the app no longer needs to lock you, because you've already mastered yourself.</p>
+    </div>
+    <div class="mastery-grid">
+      <div class="mc reveal">
+        <div class="mc-num">1–2</div>
+        <div class="mc-tag">Level 1–2</div>
+        <div class="mc-name">The Cadet</div>
+        <p class="mc-desc">Just getting started. Basic math and step bonds to earn unlocks. App wears a Calculator disguise.</p>
+        <div class="mc-perks"><span class="perk">Math Bonds</span><span class="perk">Step Goals</span><span class="perk">Calculator Skin</span></div>
+      </div>
+      <div class="mc reveal">
+        <div class="mc-num">3–5</div>
+        <div class="mc-tag">Level 3–5</div>
+        <div class="mc-name">The Focused</div>
+        <p class="mc-desc">Habit forming. Hobby bonds unlock. Ghost Mode activates — the app icon can fully vanish from your home screen.</p>
+        <div class="mc-perks"><span class="perk">Hobby Bonds</span><span class="perk">AI Verification</span><span class="perk">Full Ghost Mode</span></div>
+      </div>
+      <div class="mc reveal">
+        <div class="mc-num">6–9</div>
+        <div class="mc-tag">Level 6–9</div>
+        <div class="mc-name">The Stoic</div>
+        <p class="mc-desc">Discipline becoming identity. Golden Tickets (limited free passes) and AI Behavioral Coaching unlock.</p>
+        <div class="mc-perks"><span class="perk">Golden Tickets</span><span class="perk">AI Coach</span><span class="perk">Behavioral Insights</span></div>
+      </div>
+      <div class="mc gold reveal">
+        <div class="mc-num">10</div>
+        <div class="mc-tag" style="color:var(--gold);opacity:0.7;">Level 10 — Final Stage</div>
+        <div class="mc-name">The Sovereign</div>
+        <p class="mc-desc">Mastery achieved. DigiToxer becomes a silent observer. No locks, no bonds. You've outgrown the cage. The app succeeded by making itself unnecessary.</p>
+        <div class="mc-perks"><span class="perk">No More Locks</span><span class="perk">Silent Observer</span><span class="perk">True Mastery</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- GHOST MODE -->
+<div class="wrap" id="ghost">
+  <div class="ghost-split">
+    <div class="reveal">
+      <div class="tag">Ghost Mode</div>
+      <h2 class="title">Nobody needs to know you're improving.</h2>
+      <p class="sub">The biggest reason detox apps get deleted? Social embarrassment. DigiToxer hides as a fully functional utility. Open it — it's just a calculator.</p>
+      <ul class="check-list">
+        <li><span>✓</span><span>Choose your decoy: Calculator, Unit Converter, or Flashlight</span></li>
+        <li><span>✓</span><span>At Level 3+, the app icon vanishes entirely from your home screen</span></li>
+        <li><span>✓</span><span>Secret PIN sequence is the only backdoor — only you know it</span></li>
+        <li><span>✓</span><span>Turns self-improvement into a private, gamified journey</span></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="phone-shell">
+        <div class="phone-inner">
+          <div class="p-time">9:41</div>
+          <div class="p-date">Friday, March 20</div>
+          <div class="calc-display">
+            <div class="calc-small">entering secret sequence...</div>
+            <div class="calc-big">1234..=</div>
+          </div>
+          <div class="calc-grid">
+            <div class="cb">AC</div><div class="cb op">+/-</div><div class="cb op">%</div><div class="cb op">÷</div>
+            <div class="cb">7</div><div class="cb">8</div><div class="cb">9</div><div class="cb op">×</div>
+            <div class="cb">4</div><div class="cb">5</div><div class="cb">6</div><div class="cb op">−</div>
+            <div class="cb hi">1</div><div class="cb hi">2</div><div class="cb hi">3</div><div class="cb op">+</div>
+            <div class="cb" style="grid-column:span 2;">0</div><div class="cb hi">.</div><div class="cb eq">=</div>
+          </div>
+          <div class="ghost-hint">✦ Secret PIN entered → DigiToxer unlocks</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- WAITLIST -->
+<div class="wrap" id="waitlist" style="padding-bottom:120px;">
+  <div class="wl-box reveal">
+    <div class="tag">Early Access</div>
+    <h2 class="title">Ready to become<br>The Sovereign?</h2>
+    <p class="sub" style="text-align:center;margin:0 auto;">Join the waitlist. Get early access on Android. First 500 users get lifetime free access to all Bond types.</p>
+    <div class="wl-form">
+      <input class="wl-input" type="email" id="emailIn" placeholder="your@email.com">
+      <button class="wl-btn" onclick="join()">Join Waitlist →</button>
+    </div>
+    <div class="ok" id="okMsg">🎉 You're on the list! We'll reach out the moment we launch.</div>
+    <p class="wl-note">No spam. No credit card. Unsubscribe anytime.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo">Digi<em>Toxer</em> AI</div>
+  <p>A behavioral discipline layer for the distracted generation.</p>
+  <p style="margin-top:20px;font-size:0.74rem;">© 2025 DigiToxer AI. All rights reserved. · <a href="mailto:hello@digitoxerai.app" style="color:var(--muted);text-decoration:none;">hello@digitoxerai.app</a></p>
+</footer>
+
+<script>
+  function join() {
+    const input = document.getElementById('emailIn');
+    const msg = document.getElementById('okMsg');
+    const email = input.value.trim();
+    if (!email || !email.includes('@')) {
+      input.style.borderColor = 'var(--accent3)';
+      input.placeholder = 'Please enter a valid email';
+      setTimeout(() => { input.style.borderColor = ''; input.placeholder = 'your@email.com'; }, 2500);
+      return;
+    }
+    document.querySelector('.wl-form').style.display = 'none';
+    msg.style.display = 'block';
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
